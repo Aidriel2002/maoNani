@@ -1,0 +1,170 @@
+* {
+    font-family: sans-serif;
+}
+
+.body {
+    background-image: url('../../../images/bg.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+
+}
+
+.greet {
+    font-size: 4rem;
+    font-weight: 600;
+    color: #fff;
+    margin-top: 70%;
+
+}
+
+.greet span {
+    color: #8e45c2;
+}
+
+.question {
+    font-size: 2rem;
+    color: #fff;
+
+}
+
+.inputs {
+    background-color: #fff;
+    max-width: 400px;
+    padding: 10px;
+    border-radius: 10px;
+    margin-top: 45%;
+}
+
+input {
+    border-radius: 6px;
+    font-size: 17px;
+    padding: 14px 16px;
+    width: 330px;
+    background: white;
+    border: 1px solid lightgray;
+    height: 22px;
+    line-height: 16px;
+    vertical-align: middle;
+    margin-bottom: 10px;
+}
+
+input:focus {
+    outline: 1px solid #521A7A;
+    outline-offset: -2px;
+}
+
+h3.icaption {
+    text-align: center;
+    margin: 20px 0;
+    font-size: 2rem;
+}
+
+.abttn {
+    background-color: #521A7A;
+    border: none;
+    border-radius: 6px;
+    font-size: 20px;
+    color: white;
+    line-height: 48px;
+    padding: 0 16px;
+    width: 364px;
+    vertical-align: middle;
+    margin-bottom: 15px;
+}
+
+.abttn:hover {
+    background-color: #7924b6;
+    cursor: pointer;
+}
+
+.category,
+.priority {
+    width: 364px;
+    padding: 14px 16px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+    background-color: #fff;
+    color: #555555;
+    cursor: pointer;
+}
+
+.category:focus {
+    outline: 1px solid #521A7A;
+    outline-offset: -2px;
+}
+
+.category option[disabled] {
+    color: #741818;
+}
+
+.task-list {
+    display: grid;
+    column-gap: 10px;
+    grid-template-columns: auto auto auto;
+    padding: 10px;
+}
+
+
+.task-item.recycled {
+    display: none;
+}
+
+.task-item {
+    background-color: rgba(217, 173, 253, 0.8);
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    padding: 10px;
+    font-size: 1rem;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.dtime {
+    display: flex;
+    justify-content: flex-end;
+}
+
+p.dtime {
+    font-size: 12px;
+}
+
+.prio {
+    color: #fff;
+    padding: 2px;
+    border-radius: 5px;
+
+}
+
+
+.task-item.low p.prio {
+    background-color: #339e33;
+
+    width: 50px;
+}
+
+.task-item.medium p.prio {
+    background-color: #ff7b00;
+
+    width: 70px;
+}
+
+.task-item.high p.prio {
+    background-color: #fa232d;
+    width: 50px;
+}
+
+.bttns {
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: none;
+    margin: 10px;
+    cursor: pointer;
+}
