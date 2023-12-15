@@ -12,9 +12,11 @@ export default function Dashboard({ user }) {
         </div>
         <div className="todo">
         <TodoApp/>
+        
         </div>
         </div>
         < TaskList />
+    
       </>
     );
   }

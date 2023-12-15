@@ -39,7 +39,7 @@ const SignUp = () => {
     const containsNumber = /\d/.test(enteredValue);
     if (containsNumber) {
       setMessage("Name cannot contain numbers.");
-      updateMessageStyle("red");
+      updateMessageStyle("#f0356a");
       return false;
     } else {
       setMessage("");
@@ -61,12 +61,12 @@ const SignUp = () => {
 
     if (password !== confirmPassword) {
       setMessage("Password do not match.");
-      updateMessageStyle("red");
+      updateMessageStyle("#f0356a");
       return;
     }
     if (password.length < 8) {
       setMessage("Passwords must have at least 8 characters.");
-      updateMessageStyle("red");
+      updateMessageStyle("#f0356a");
       return;
     }
 
@@ -91,7 +91,7 @@ const SignUp = () => {
           .catch((updateProfileError) => {
             console.error("Error updating profile:", updateProfileError);
             setMessage("An error occurred. Please try again.");
-            updateMessageStyle("red");
+            updateMessageStyle("#f0356a");
           });
       })
       .catch((err) => {
@@ -103,7 +103,7 @@ const SignUp = () => {
           setMessage("An error occurred. Please try again.");
         }
 
-        updateMessageStyle("red");
+        updateMessageStyle("#f0356a");
         console.log(err);
       });
   };
@@ -114,7 +114,7 @@ const SignUp = () => {
         <h3 className="signUp">Create Account</h3>
         <p className="scaption">I'm happy to see you here!</p>
         <form onSubmit={(e) => handleSubmit(e)}>
-          <div className="inputBox">
+          <div className="sinputBox">
             <input
               name="fname"
               value={name}
@@ -124,7 +124,7 @@ const SignUp = () => {
             />
             <span>First Name</span>
           </div>
-          <div className="inputBox">
+          <div className="sinputBox">
             <input
               name="fname"
               value={lastName}
@@ -134,7 +134,7 @@ const SignUp = () => {
             />
             <span>Last Name</span>
           </div>
-          <div className="inputBox">
+          <div className="sinputBox">
             <input
               className="semail-box"
               value={email}
@@ -144,7 +144,7 @@ const SignUp = () => {
             <span>Enter your email</span>
           </div>
           <div style={{ display: "flex" }}>
-            <div className="inputBox">
+            <div className="sinputBox">
               <input
                 name="password"
                 type={showPassword ? "text" : "password"}
@@ -157,16 +157,12 @@ const SignUp = () => {
             </div>
             <FontAwesomeIcon
               icon={showPassword ? faEyeSlash : faEye}
-              className="eye-icon"
-              style={{
-                position: "absolute",
-                margin: "27px 330px",
-                cursor: "pointer",
-              }}
+              className="seye-icon"
+              
               onClick={() => setShowPassword(!showPassword)}
             />
           </div>
-          <div className="inputBox">
+          <div className="sinputBox">
             <input
               type={showPassword ? "text" : "password"}
               name="fname"

@@ -1,11 +1,10 @@
 import { FaGithub, FaFacebook, FaInstagram, FaTiktok, FaYoutube } from 'react-icons/fa';
 import './footer.css'
-
-export default function Footer() {
+export default function Footer({ darkMode }) {
     return (
         <>
 
-            <footer>
+            <footer className={darkMode ? 'dark-mode' : 'light-mode'}>
                 <div className="footer-content">
                     <h3>NielDo</h3>
                     <p>Hello World! I'm Dexter Niel Aidriel D. Basergo currently studying <br />BSIT at St. Peters's College</p>

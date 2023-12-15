@@ -41,6 +41,7 @@ function TodoApp() {
             <div className='inputs'>
                 <h3 className='icaption'>Add Task</h3>
                 <input
+                    className='tinput'
                     type="text"
                     placeholder="Enter task title"
                     value={title}
@@ -48,6 +49,7 @@ function TodoApp() {
                     required
                 />
                 <input
+                    className='tinput'
                     placeholder="Enter task description"
                     value={description}
                     onChange={(e) => setDescription(e.target.value)}
@@ -77,6 +79,7 @@ function TodoApp() {
                     Add Task
                 </button>
             </div>
+            
         </>
     );
 }

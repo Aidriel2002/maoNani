@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { signOut } from 'firebase/auth';
 import { auth } from '../../firebase';
 import './navbar.css';
+import logo from '../../images/logoW.png'
 
 export default function Navbar({ user }) {
   const [showDropdown, setShowDropdown] = useState(false);
@@ -28,14 +29,10 @@ export default function Navbar({ user }) {
   };
 
   return (
+    <>
     <nav>
       <div className="navv">
-          <img src="logoW.png" alt="logoW" />
-          <div className="nav-links">
-            <Link to="/">Dashboard</Link>
-            <Link to="/completed">Completed Task</Link>
-            <Link to="/trash">Trash</Link>
-          </div>
+          <img src={logo} alt="logoW" />
           <div className="user-right">
           <p className='authName'>{user.displayName}</p>
         <span className="dropdown-icon" onClick={toggleDropdown}>
@@ -43,11 +40,17 @@ export default function Navbar({ user }) {
         </span>
         {showDropdown && (
           <div className="dropdown-content">
+            
+            <button><Link to="/">Dashboard</Link></button>
+            <button><Link to="/completed">Completed Task</Link></button>
+            <button><Link to="/trash">Trash</Link></button>
             <button onClick={userSignOut}>Logout</button>
           </div>
         )}
       </div>
       </div>
     </nav>
+
+    </>
   );
 }

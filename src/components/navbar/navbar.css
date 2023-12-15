@@ -7,7 +7,7 @@
     justify-content: space-between;
     align-items: center;
     padding: 20px;
-    background-color: #521A7A;
+    background-color: #262626;
     width: 100%;
     font-family: sans-serif;
   }
@@ -39,14 +39,14 @@
     z-index: 1;
     margin-top: 30px;
     border-radius: 5px;
-    left: 95%;
+    left: 92%;
 
   }
   
   .dropdown-content button {
     display: block;
     width: 100%;
-    padding: 10px;
+    padding: 10px 20px;
     text-align: left;
     border: none;
     background: none;
@@ -55,8 +55,9 @@
   }
   
   .dropdown-content button:hover {
-    background-color: #ddd;
+    background-color: #f83673;
     border-radius: 5px;
+    color: #fff;
   }
   
   .show {
@@ -67,11 +68,33 @@
     color: white;
     font-size: 20px;
   }
-
-  .nav-links a {
-    color: rgb(255, 255, 255);
+  button a {
     text-decoration: none;
-    margin-right: 20px;
-    font-size: 1.2rem;
+    color: inherit;
   }
-  
+  @media only screen and (max-width: 1750px) {
+    .dropdown-content {
+      left: 90%;
+    }
+  }
+  @media only screen and (max-width: 1385px) {
+    .dropdown-content {
+      left: 85%;
+    }
+  }
+  @media only screen and (max-width: 931px) {
+    .dropdown-content {
+      left: 80%;
+    }
+  }
+
+  @media only screen and (max-width: 711px) {
+    .dropdown-content {
+      left: 75%;
+    }
+  }
+  @media only screen and (max-width: 569px) {
+    .dropdown-content {
+      left: 70%;
+    }
+  }

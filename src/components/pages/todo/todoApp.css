@@ -3,28 +3,25 @@
 }
 
 .body {
-    background-image: url('../../../images/bg.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    height: 100vh;
+    background-color: #080808;
+    height: 90vh;
     width: 100%;
     display: flex;
     justify-content: space-around;
+    align-items: center; 
     text-align: center;
-
 }
 
 .greet {
     font-size: 4rem;
     font-weight: 600;
     color: #fff;
-    margin-top: 70%;
+    margin-top: 10%;
 
 }
 
 .greet span {
-    color: #8e45c2;
+    color: #ff004f;
 }
 
 .question {
@@ -34,43 +31,44 @@
 }
 
 .inputs {
-    background-color: #fff;
+    background-color: #262626;
     max-width: 400px;
     padding: 10px;
     border-radius: 10px;
     margin-top: 45%;
 }
 
-input {
+.tinput{
     border-radius: 6px;
     font-size: 17px;
     padding: 14px 16px;
     width: 330px;
-    background: white;
+    background: #262626;
     border: 1px solid lightgray;
     height: 22px;
     line-height: 16px;
     vertical-align: middle;
     margin-bottom: 10px;
+    color: #fff;
 }
 
-input:focus {
-    outline: 1px solid #521A7A;
-    outline-offset: -2px;
+.tinput:focus {
+    outline: none;
 }
 
 h3.icaption {
     text-align: center;
     margin: 20px 0;
     font-size: 2rem;
+    color: #fff;
 }
 
 .abttn {
-    background-color: #521A7A;
+    background-color: #ff004f;
     border: none;
     border-radius: 6px;
     font-size: 20px;
-    color: white;
+    color: #fff;
     line-height: 48px;
     padding: 0 16px;
     width: 364px;
@@ -79,7 +77,7 @@ h3.icaption {
 }
 
 .abttn:hover {
-    background-color: #7924b6;
+    background-color: #f83673;
     cursor: pointer;
 }
 
@@ -92,79 +90,48 @@ h3.icaption {
     border-radius: 5px;
     margin-bottom: 15px;
     box-sizing: border-box;
-    background-color: #fff;
-    color: #555555;
+    background-color: #262626;
+    color: gray;
     cursor: pointer;
 }
 
 .category:focus {
-    outline: 1px solid #521A7A;
-    outline-offset: -2px;
+    outline: none;
 }
 
 .category option[disabled] {
-    color: #741818;
+    color: gray;
 }
 
-.task-list {
-    display: grid;
-    column-gap: 10px;
-    grid-template-columns: auto auto auto;
-    padding: 10px;
+@media only screen and (max-width: 1074px) {
+    .body {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .greet {
+        margin-top: 30%; 
+    }
 }
 
+@media only screen and (max-width: 768px) {
+    .greet {
+        margin-top: 20%; 
+        font-size: 3rem; 
+    }
 
-.task-item.recycled {
-    display: none;
+    .inputs {
+        margin-top: 20%;
+    }
 }
 
-.task-item {
-    background-color: rgba(217, 173, 253, 0.8);
-    border: 1px solid rgba(0, 0, 0, 0.8);
-    padding: 10px;
-    font-size: 1rem;
-    text-align: center;
-    margin-bottom: 10px;
-}
-
-.dtime {
-    display: flex;
-    justify-content: flex-end;
-}
-
-p.dtime {
-    font-size: 12px;
-}
-
-.prio {
-    color: #fff;
-    padding: 2px;
-    border-radius: 5px;
-
-}
-
-
-.task-item.low p.prio {
-    background-color: #339e33;
-
-    width: 50px;
-}
-
-.task-item.medium p.prio {
-    background-color: #ff7b00;
-
-    width: 70px;
-}
-
-.task-item.high p.prio {
-    background-color: #fa232d;
-    width: 50px;
-}
-
-.bttns {
-    padding: 5px 10px;
-    border-radius: 5px;
-    border: none;
-    margin: 10px;
-    cursor: pointer;
+@media only screen and (max-width: 480px) {
+    .greet {
+        margin-top: 10%; 
+        font-size: 2rem; 
+    }
+    .inputs {
+        margin-top: 10%;
+    }
 }

@@ -1,3 +1,6 @@
+body {
+  min-height: 738px;
+}
 #header {
     font-family: sans-serif;
     display: flex;
@@ -43,73 +46,74 @@
   
   .email-box:focus,
   .pw-box:focus {
-    outline: 1px solid #521A7A;
-    outline-offset: -2px;
+    outline: none;
   }
-
-.form-container {
+  .pw-box:focus {
+    outline: none;
+  }
+.lform-container {
     align-items: center;
-    border: none;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
     box-sizing: border-box;
-    width: 397px;
-    height: 350px;
-    margin-top: 5%;
-    padding: 10px;
+    width: 440px;
+    height: 440px;
+    margin-top: 8%;
+    margin-right: 5%;
+    padding: 30px 40px;
+    border-radius: 10px;
   }
-.inputBox{
+.inputBoxl{
     position: relative;
     width: 100%;
     margin-top: 10px;
   }
-.inputBox span{
+.inputBoxl span{
     position: absolute;
     left: 0;
     padding: 5px 0;
     font-size: 16px;
-    margin: 13px 17px;
+    margin: -40px 17px;
     pointer-events: none;
     transition: 0.5s;
     color:gray;
-    
-    
   }
-.inputBox input:focus ~ span,
-.inputBox input:valid ~ span
+.inputBoxl input:focus ~ span,
+.inputBoxl input:valid ~ span
   {
     color: rgb(19, 19, 19);
     font-size: 12px;
-    transform: translateY(-23px);
-    background-color: white;
-    padding: 5px;
+    transform: translateY(-18px);
+    background-color: #fff;
+    padding: 0;
   }
 
 .login{
     margin-left: 10px;
     font-size: 2.5rem;
     font-weight: 400;
-    margin-bottom: 30px;
+    margin-bottom: 10px;
   }
   .caption {
     margin-left: 10px;
     font-size: 1.2rem;
     margin-top: 5px;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
   }
 
   .adjust-forgot-pw {
     margin-left: 228px;
-    color: #521A7A;
-    font-family: SFProText-Regular, Helvetica, Arial, sans-serif;
+    color: #ff004f;
     font-size: 1.0rem;
     cursor: pointer;
+    margin-top: 15px;
+    margin-bottom: 15px;
   }
 
   .adjust-forgot-pw:hover{
-    color: #7924b6;
     text-decoration: underline;
   }
   .login-button {
-    background-color: #521A7A;
+    background-color: #ff004f;
     border: none;
     border-radius: 6px;
     font-size: 20px;
@@ -119,10 +123,11 @@
     width: 364px;
     vertical-align: middle;
     margin-bottom: 15px;
+    transition: 0.3s;
   }
   
   .login-button:hover {
-    background-color: #7924b6;
+    background-color: #f83673;
     cursor: pointer;
   }
   .signup {
@@ -130,9 +135,192 @@
     margin-bottom: 20px;
   }
   .signup span {
-    color: #7924b6 ;
+    color: #f0356a ;
     cursor: pointer;
   }
   .signup span:hover {
     text-decoration: underline;
   }
+  p#created {
+    text-align: center;
+    margin-top: 90px;
+  }
+  .dark-mode h1 {
+    color: #fff;
+  }
+  .dark-mode {
+    background-color: #080808;
+    height: 100vh;
+  }
+  .dark-mode .lform-container {
+    background-color: #262626;
+    color: #fff;
+  }
+
+  .dark-mode input {
+    background-color: #fff;
+  }
+
+
+
+.qdark {
+  font-weight: 700;
+}
+.sbttn { 
+  font-weight: 700;
+  margin-top: 5px;
+  background: transparent;
+  border: none;
+  font-size: 16px;
+  color: #ff004f;
+}
+.sbttn:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+.dark-mode .qdark {
+  color: #fff;
+}
+
+.dark-mode .eye-icon {
+  color: #474747;
+}
+.eye-icon {
+  color: #474747;
+  position: absolute;
+   margin: 29px 330px;
+  cursor: pointer;
+}
+p.phoneMode {
+  display: none;
+  text-align: center;
+}
+
+@media only screen and (max-width: 1234px) {
+  .left-header {
+    margin-left: 5%;
+  }
+  .left-header img{
+    width: 150px;
+  }
+  .left-header h1 {
+    font-size: 25px;
+    margin-top: 15px;
+  }
+  .sbttn {
+    font-size: 12px;
+  }
+  .qdark {
+    font-size: 13px;
+  }
+  .lform-container {
+    width: 340px;
+    height: 410px;
+  }
+  .login{
+    font-size: 2.0rem;
+    margin-bottom: 5px;
+  }
+  .caption {
+    font-size: .9rem;
+    margin-top: 5px;
+    margin-bottom: 30px;
+  }
+  .email-box,.pw-box {
+    font-size: 14px;
+    padding: 10px 13px;
+    width: 230px;
+  }
+  .eye-icon {
+    margin: 23px 230px;
+    color: #474747;
+  }
+  .adjust-forgot-pw {
+    margin-left: 125px;
+    font-size: 1rem;
+    color: #f0356a;
+  }
+  .login-button {
+    font-size: 18px;
+    line-height: 45px;
+    width: 254px;
+    margin-bottom: 20px;
+  }
+  p#created {
+    font-size: 14px;
+    margin-top: 30px;
+  }
+  .inputBoxl span{
+    font-size: 16px;
+    margin: 9px 17px;
+  }
+  .inputBoxl input:focus ~ span,
+  .inputBoxl input:valid ~ span
+  {
+    transform: translateY(-15px);
+  }
+  
+}
+
+@media only screen and (max-width: 993px) {
+
+  .left-header img{
+    width: 100px;
+  }
+  .left-header h1 {
+    font-size: 18px;
+  }
+  
+}
+
+@media only screen and (max-width: 805px) {
+
+  .left-header img,
+  .left-header h1,
+  .sbttn,
+  .qdark {
+    display: none;
+    margin: 0;
+  }
+  .lform-container {
+    margin: 0 auto;
+    margin-top: 15%;
+  }
+  p.phoneMode {
+    display: block;
+    margin: 0 auto;
+    color: #000000;
+    margin-top: 75px;
+  }
+  .dark-mode p.phoneMode {
+    display: block;
+    color: #fff;
+    margin-top: 80px;
+  }
+  .bttn {
+    background: transparent;
+    border: none;
+    font-size: 16px;
+    color: #f0356a;
+  }
+  p.phone{
+    display: block;
+    text-align: center;
+  }
+  p#created {
+    color: #56852a;
+  }
+}
+
+@media only screen and (max-width: 564px) {
+  .lform-container {
+    margin-top: 16%;
+  }
+
+}
+@media only screen and (max-width: 500px) {
+  .lform-container {
+    margin-top: 30%;
+  }
+
+}

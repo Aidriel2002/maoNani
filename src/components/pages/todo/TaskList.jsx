@@ -1,7 +1,10 @@
 import { doc, query, getDocs, getDoc, updateDoc, collection, setDoc, where, orderBy } from 'firebase/firestore';
-import React, { useState,useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTrash, faEdit, faCheck } from '@fortawesome/free-solid-svg-icons';
+
 import { auth, db } from '../../../firebase';
-import './todoApp.css'
+import './TaskList.css'
 
 function TaskList() {
     const [tasks, setTasks] = useState([]);
@@ -12,7 +15,7 @@ function TaskList() {
     const [editDescription, setEditDescription] = useState('');
     const [editCategory, setEditCategory] = useState('');
     const [editPriority, setEditPriority] = useState('');
-    
+
 
     const markComplete = async (taskId) => {
         try {
@@ -46,6 +49,7 @@ function TaskList() {
             } catch (e) {
                 console.error('Error fetching tasks: ', e);
             }
+
         };
 
         const unsubscribe = auth.onAuthStateChanged((user) => {
@@ -142,38 +146,42 @@ function TaskList() {
         }
     };
 
+    return (
+        <>
+        <div className="bg">
 
+            <div className="task-list" id="tasks-list" >
+                {tasks.map((task) => (
+                    <div
+                        key={task.id}
+                        className={`task-item ${task.recycleBin ? 'recycled' : 'restored'} ${task.completed ? 'completed' : 'notcomplete'
+                            } ${task.priority}`}
+                    >
+                        <p className='prio'>{task.priority}</p>
+                        <p>Title: {task.title}</p>
+                        <p>Description: {task.description}</p>
+                        <p>Category: {task.category}</p>
 
+                        <button className='del' onClick={() => moveTask(task.id)}>
+                            <FontAwesomeIcon icon={faTrash} />
+                        </button>
 
+                        <button className='edit' onClick={() => startEditing(task)}>
+                            <FontAwesomeIcon icon={faEdit} />
+                        </button>
 
-
-
-  return (
-   <>
-   
-   <div className="task-list" id="tasks-list">
-        {tasks.map((task) => (
-          <div
-            key={task.id}
-            className={`task-item ${task.recycleBin ? 'recycled' : 'restored'} ${
-              task.completed ? 'completed' : 'notcomplete'
-            } ${task.priority}`}
-          >
-            <p className='prio'>{task.priority}</p>
-            <p>Title: {task.title}</p>
-            <p>Description: {task.description}</p>
-            <p>Category: {task.category}</p>
-            
-            <button className='bttns' onClick={() => moveTask(task.id)}>Delete</button>
-            <button className='bttns' onClick={() => startEditing(task)}>Edit</button>
-            {!task.completed && <button className='bttns' onClick={() => markComplete(task.id)}>Mark Complete</button>}
-            <p className="dtime"> {new Date(task.timestamp).toLocaleString()}</p>
-          </div>
-        ))}
-      </div>
+                        {!task.completed &&
+                            <button className='done' onClick={() => markComplete(task.id)}>
+                                <FontAwesomeIcon icon={faCheck} />
+                            </button>
+                        }
+                        <p className="dtime"> {new Date(task.timestamp).toLocaleString()}</p>
+                    </div>
+                ))}
+            </div>
             {showConfirmationModal && (
-                <div className="modal-overlay" onClick={closeConfirmationModal}>
-                    <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+                <div className="modal-overlayt" onClick={closeConfirmationModal}>
+                    <div className="modal-contentt" onClick={(e) => e.stopPropagation()}>
                         <p>Move task to Recycle Bin?</p>
                         <button onClick={confirmMoveTask}>Yes</button>
                         <button onClick={closeConfirmationModal}>No</button>
@@ -182,21 +190,21 @@ function TaskList() {
             )}
 
             {isEditing && (
-                <div className="modal-overlay" onClick={cancelEditing}>
-                    <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+                <div className="modal-overlayt" onClick={cancelEditing}>
+                    <div className="modal-contentt" onClick={(e) => e.stopPropagation()}>
                         <h3>Edit Task</h3>
-                        <label>Title:</label>
-                        <input type="text" value={editTitle} onChange={(e) => setEditTitle(e.target.value)} />
-                        <label>Description:</label>
-                        <input type="text" value={editDescription} onChange={(e) => setEditDescription(e.target.value)} />
-                        <label>Category:</label>
+                        
+                        <input className='einput' type="text" value={editTitle} onChange={(e) => setEditTitle(e.target.value)} />
+                        
+                        <input className='einput' type="text" value={editDescription} onChange={(e) => setEditDescription(e.target.value)} />
+                        
                         <select value={editCategory} onChange={(e) => setEditCategory(e.target.value)}>
                             <option value="work">Work</option>
                             <option value="personal">Personal</option>
                         </select>
-                        <label>Priority:</label>
+                        
                         <select value={editPriority} onChange={(e) => setEditPriority(e.target.value)}>
-                            <option  value="low">Low</option>
+                            <option value="low">Low</option>
                             <option value="medium">Medium</option>
                             <option value="high">High</option>
                         </select>
@@ -205,9 +213,10 @@ function TaskList() {
                     </div>
                 </div>
             )}
-   
-   </>
-  )
+            </div>
+
+        </>
+    )
 }
 
 export default TaskList

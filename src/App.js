@@ -9,23 +9,29 @@ import CompletedTasks from './components/pages/todo/CompletedTasks';
 
 function App() {
   const [user, setUser] = useState(null);
+  
 
+  
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
       if (user) {
       }
-
       setUser(user);
+
     });
     return () => unsubscribe();
   }, []);
+
+  
 
 
  
 
   return (
     <>
+     
+        
       {user ? (
         <Router>
           <Navbar user={user}/>

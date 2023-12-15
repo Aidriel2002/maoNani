@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { auth, db } from '../../../firebase';
 import { collection, getDocs, query, where, orderBy } from 'firebase/firestore';
+import './completedtask.css'
 
 function CompletedTasks() {
   const [completedTasks, setCompletedTasks] = useState([]);
@@ -36,18 +37,23 @@ function CompletedTasks() {
 
   return (
     <>
+    <div className="bg">
       <h2>Completed Tasks</h2>
-      <div className="completed-tasks-list" id='completed-tasks-list'>
+      <div className="task-list" id="tasks-list">
         {completedTasks.map((task) => (
-          <div key={task.id} className="completed-task-item">
+          <div key={task.id} className={`completed-task-item ${task.recycleBin ? 'recycled' : 'restored'} ${task.completed ? 'completed' : 'notcomplete'
+        } ${task.priority}`}>
+            <p className='prio'>{task.priority}</p>
             <p>Title: {task.title}</p>
             <p>Description: {task.description}</p>
             <p>Category: {task.category}</p>
-            <p>Priority Level: {task.priority}</p>
+
             <p>{new Date(task.timestamp).toLocaleString()}</p>
           </div>
         ))}
       </div>
+      </div>
+      
     </>
   );
 }

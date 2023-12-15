@@ -1,0 +1,49 @@
+/* Update the selector for the container */
+.recycle-bin-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 10px;
+    padding: 10px;
+    max-width: 900px;
+    justify-content: center;
+    margin: auto;
+  }
+  
+  /* Apply the styles to the specific container */
+  .recycle-bin-container .recycled-task-item {
+    background-color: #262626;
+    border: none;
+    padding: 15px;
+    font-size: 1rem;
+    text-align: left;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+  }
+  
+  .recycle-bin-container .recycled-task-item p {
+    margin: 5px 0;
+  }
+  
+  .recycle-bin-container .recycled-task-item button {
+    padding: 8px 15px;
+    border-radius: 5px;
+    border: none;
+    margin-right: 5px;
+    cursor: pointer;
+    background-color: #444;
+    color: #fff;
+    transition: background-color 0.3s ease;
+  }
+  
+  .recycle-bin-container .recycled-task-item button:hover {
+    background-color: #555;
+  }
+  @media only screen and (max-width: 768px) {
+    .recycle-bin-container  {
+        grid-template-columns: 1fr;
+        margin: 30px;
+    }
+}
+  

@@ -1,14 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth, db } from "../../../firebase";
-import {
-  collection,
-  doc,
-  getDocs,
-  getDoc,
-  setDoc,
-  deleteDoc,
-} from "firebase/firestore";
+import {collection, doc, getDocs, getDoc, setDoc, deleteDoc} from "firebase/firestore";
+import './recylebin.css'
 
 function RecycleBin() {
   const [recycledTasks, setRecycledTasks] = useState([]);
@@ -91,8 +85,11 @@ function RecycleBin() {
   }, []);
 
   return (
-    <div id="RecycleBin" className="recycle-bin">
-      <h2>Recycle Bin</h2>
+    <>
+    <div className="bg">
+    <h2>Recycle Bin</h2>
+    <div className="recycle-bin-container" id="RecycleBin">
+      
 
       {recycledTasks.map((task) => (
         <div key={task.id} className="recycled-task-item">
@@ -116,6 +113,8 @@ function RecycleBin() {
         </div>
       )}
     </div>
+    </div>
+    </>
   );
 }
 
