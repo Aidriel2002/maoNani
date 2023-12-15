@@ -104,8 +104,8 @@ function RecycleBin() {
       ))}
 
       {showConfirmationModal && (
-        <div className="modal" onClick={closeConfirmationModal}>
-          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+        <div className="modal-overlayt" onClick={closeConfirmationModal}>
+          <div className="modal-contentt" onClick={(e) => e.stopPropagation()}>
             <p>Delete task permanently?</p>
             <button onClick={deletePermanently}>Yes</button>
             <button onClick={closeConfirmationModal}>No</button>
