@@ -70,6 +70,12 @@ const SignUp = () => {
       return;
     }
 
+    if (password.length > 16) {
+      setMessage("Password maximum of 16 characters.");
+      updateMessageStyle("#f0356a");
+      return;
+    }
+
     const isNameValid = validateName(name);
     const isLastNameValid = validateName(lastName);
 
